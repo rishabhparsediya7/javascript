@@ -12,8 +12,4 @@ const incrementCount = myDebounce(() => {
   console.log("incremented");
 }, 1000);
 
-const click = () => {
-  incrementCount();
-};
-
-click();
+incrementCount();
