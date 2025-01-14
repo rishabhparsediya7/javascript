@@ -45,7 +45,18 @@ function MyPromise(executor) {
   }
 }
 
-const executor = (resolve, reject) => {
+// const executor = (resolve, reject) => {
+//   setTimeout(() => {
+//     const success = Number(Math.floor(Math.random() * 100)) < Number(50);
+//     if (success) {
+//       resolve("Promise Fulfilled!");
+//     } else {
+//       reject("Promise Rejected!");
+//     }
+//   }, 1000);
+// };
+
+const myPromise = new MyPromise((resolve, reject) => {
   setTimeout(() => {
     const success = Number(Math.floor(Math.random() * 100)) < Number(50);
     if (success) {
@@ -54,9 +65,7 @@ const executor = (resolve, reject) => {
       reject("Promise Rejected!");
     }
   }, 1000);
-};
-
-const myPromise = new MyPromise(executor);
+});
 
 myPromise
   .then((message) => {

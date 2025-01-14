@@ -45,19 +45,35 @@ const sampleNestedObject = {
   ],
 };
 
-function sumNumericalValues(obj) {
-  let total = 0;
+// function sumNumericalValues(obj) {
+//   let total = 0;
+
+//   for (let key in obj) {
+//     if (typeof obj[key] === "number") {
+//       total += obj[key];
+//     } else if (typeof obj[key] === "object" && obj[key] !== null) {
+//       total += sumNumericalValues(obj[key]);
+//     }
+//   }
+
+//   return total;
+// }
+
+// const totalSum = sumNumericalValues(sampleNestedObject);
+// console.log("Total Sum of Numerical Values:", totalSum);
+
+function findSum(obj) {
+  let totalSum = 0;
 
   for (let key in obj) {
     if (typeof obj[key] === "number") {
-      total += obj[key];
-    } else if (typeof obj[key] === "object" && obj[key] !== null) {
-      total += sumNumericalValues(obj[key]);
+      totalSum += parseInt(obj[key]);
+    } else if (typeof obj === "object" && obj !== null) {
+      totalSum += findSum(obj[key]);
     }
   }
 
-  return total;
+  return totalSum;
 }
-
-const totalSum = sumNumericalValues(sampleNestedObject);
-console.log("Total Sum of Numerical Values:", totalSum);
+const sum = findSum(sampleNestedObject);
+console.log("🚀 ~ sum:", sum);
