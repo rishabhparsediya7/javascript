@@ -1,0 +1,18 @@
+.file {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  column-gap: 8px;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+.folder {
+  border-radius: 4px;
+}
+.folder-name {
+  max-width: 140px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  row-gap: 10px;
+}
