@@ -7,8 +7,8 @@ Array.prototype.myfilter = function (callback, thisArg) {
   var result = [];
 
   while (k < len) {
-    if (k in Obj) {
-      if (callback.call(thisArg, Obj[k])) {
+    if (k in Obj) { // sparse array
+      if (callback.call(thisArg, Obj[k], k, Obj)) {
         result.push(Obj[k]);
       }
     }

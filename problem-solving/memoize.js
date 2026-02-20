@@ -23,8 +23,12 @@ const memoizedFunction = memoize(slowFunction);
 
 let startTime = Date.now();
 console.log(memoizedFunction(5));
-console.log(Date.now() - startTime);
+console.log("time taken: ", Date.now() - startTime);
+
+startTime = Date.now();
+console.log(memoizedFunction(5));
+console.log("time taken: ", Date.now() - startTime);
 
 startTime = Date.now();
 console.log(memoizedFunction(3));
-console.log(Date.now() - startTime);
+console.log("time taken: ", Date.now() - startTime);

@@ -12,8 +12,8 @@ Array.prototype.myreduce = function (callback, initialValue) {
   }
 
   while (k < len) {
-    if (k in Obj) {
-      accumulator = callback(accumulator, Obj[k]);
+    if (k in Obj) { // sparse array
+      accumulator = callback(accumulator, Obj[k], k, Obj);
     }
     k++;
   }
@@ -22,7 +22,7 @@ Array.prototype.myreduce = function (callback, initialValue) {
 };
 const numbers = [1, 2, 3, 4];
 
-const sum = numbers.myreduce(function (acc, curr) {
+const sum = numbers.myreduce(function (acc, curr, index, arr) {
   return acc + curr;
 }, 0);
 

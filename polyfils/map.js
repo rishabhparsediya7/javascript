@@ -5,10 +5,10 @@ Array.prototype.mymap = function (callback, thisArg) {
   var result = new Array(len);
 
   for (var i = 0; i < len; i++) {
-    if (i in Obj) {
-      result[i] = callback.call(thisArg, Obj[i]);
+    if (i in Obj) { // sparse array
+      result[i] = callback.call(thisArg, Obj[i], i, Obj);
     }
-  }
+  } 
 
   return result;
 };
